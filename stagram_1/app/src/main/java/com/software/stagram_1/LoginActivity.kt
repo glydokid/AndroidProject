@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 var account = result.signInAccount
                 // 구글 로그인 두번째 단계
                 firebaseAuthWithGoogle(account)
+                
             }
         }
     }
