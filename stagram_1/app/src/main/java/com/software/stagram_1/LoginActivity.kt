@@ -39,19 +39,6 @@ class LoginActivity : AppCompatActivity() {
         var signInIntent = googleSignInClient?.signInIntent
        startActivityForResult(signInIntent,GOOGLE_LOGIN_CODE)
     }
-/*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode == GOOGLE_LOGIN_CODE){
-            var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
-            if(result.isSuccess) {
-                var account = result.signInAccount
-                // 구글 로그인 두번째 단계
-                firebaseAuthWithGoogle(account)
-            }
-        }
-    }
-    */
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
