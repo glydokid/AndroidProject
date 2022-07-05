@@ -30,15 +30,28 @@ class LoginActivity : AppCompatActivity() {
             googleLogin()
         }
         var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken("279059285735-d9n4gr66mdud2aro8mq2h4bigni8m29b.apps.googleusercontent.com")
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this,gso)
     }
     fun googleLogin(){
         var signInIntent = googleSignInClient?.signInIntent
-        startActivityForResult(signInIntent,GOOGLE_LOGIN_CODE)
+       startActivityForResult(signInIntent,GOOGLE_LOGIN_CODE)
     }
+/*
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == GOOGLE_LOGIN_CODE){
+            var result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+            if(result.isSuccess) {
+                var account = result.signInAccount
+                // 구글 로그인 두번째 단계
+                firebaseAuthWithGoogle(account)
+            }
+        }
+    }
+    */
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -48,7 +61,6 @@ class LoginActivity : AppCompatActivity() {
                 var account = result.signInAccount
                 // 구글 로그인 두번째 단계
                 firebaseAuthWithGoogle(account)
-                
             }
         }
     }
