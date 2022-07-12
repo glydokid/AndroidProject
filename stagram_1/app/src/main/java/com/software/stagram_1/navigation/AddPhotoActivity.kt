@@ -36,7 +36,7 @@ class AddPhotoActivity : AppCompatActivity() {
         }
 
     }
-    
+
     //선택한 이미지를 받기
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
